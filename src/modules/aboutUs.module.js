@@ -99,7 +99,8 @@ export class AboutUs extends Module {
   }
 
   trigger() {
-    document.body.append(this.aboutContainer);
+    const container = document.querySelector(".container");
+    container.append(this.aboutContainer);
   }
 }
 

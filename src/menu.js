@@ -9,9 +9,11 @@ export class ContextMenu extends Menu {
       const { y } = event;
 
       const info = document.querySelector(".container");
-      if (info) {
-        info.remove();
-      }
+      // if (info) {
+      //   info.remove();
+      // }
+
+      info.innerHTML = "";
 
       this.open(x, y);
     });

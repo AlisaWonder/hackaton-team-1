@@ -27,7 +27,8 @@ export class Timer extends Module {
     setTimeout(() => {
       timeEl.classList.add("active");
     }, 200);
-    document.body.append(timeEl);
+    const container = document.querySelector(".container");
+    container.append(timeEl);
     let totalAmount = 0;
     let counter;
     timeForm.addEventListener("submit", (event) => {

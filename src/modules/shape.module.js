@@ -9,10 +9,10 @@ export class ShapeModule extends Module {
   trigger() {
     let canvas = document.createElement("canvas");
     canvas.id = "canvas";
-    const container = document.createElement("div");
-    container.classList = "container__canva";
+    const container = document.querySelector(".container");
+
     container.append(canvas);
-    document.body.append(container);
+
     let ctx = canvas.getContext("2d");
     const width = (canvas.width = innerWidth);
     const height = (canvas.height = innerHeight);

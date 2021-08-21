@@ -8,13 +8,12 @@ export class Btn extends Module {
 
   trigger() {
     const btn = document.createElement("button");
-    const container = document.createElement("div");
-    container.classList = "container__canva";
+    const container = document.querySelector("div");
+    container.classList = "container";
     btn.className = "button";
     btn.backgroundColor = `${Utils.RandColor()}`;
     btn.textContent = "Поймай меня, если сможешь";
     container.append(btn);
-    document.body.append(container);
 
     const newBtn = document.querySelector(".button");
     newBtn.addEventListener("mouseenter", () => {
@@ -25,11 +24,10 @@ export class Btn extends Module {
 
     newBtn.addEventListener("click", () => {
       const title = document.createElement("h2");
-      container.innerHTML = "";
       title.className = "btn__title";
       title.textContent =
         "Вы меня поймали! Хватит кликать, выберите другой модуль!";
-      document.body.append(title);
+      container.append(title);
     });
   }
 }

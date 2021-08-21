@@ -16,7 +16,7 @@ module.exports = (env, argv) => {
     target: "web",
     context: path.resolve(__dirname, "src"),
     entry: {
-      main: ["core-js/stable", "regenerator-runtime/runtime", "./index.js"],
+      main: ["core-js/stable", "regenerator-runtime/runtime", "./src/index.js"],
     },
     output: {
       path: path.resolve(__dirname, "dist"),

@@ -4,14 +4,15 @@ import { AboutUs } from "./modules/aboutUs.module";
 import { Timer } from "./modules/timer.module";
 
 export default class App {
-  #aboutUsMD;
   #contextMenu;
-  #timerMD;
+  #modules;
 
   constructor() {
-    this.#timerMD = new Timer("timer-md", "Таймер");
-    this.#aboutUsMD = new AboutUs("about-us-md", "Об авторах");
     this.#contextMenu = new ContextMenu("ul");
+    this.#modules = [
+      new Timer("timer-md", "Таймер"),
+      new AboutUs("about-us-md", "Об авторах"),
+    ];
 
     document.oncontextmenu = function () {
       return false;
@@ -19,15 +20,18 @@ export default class App {
 
     document.body.addEventListener("click", (event) => {
       const { target } = event;
-      const targetEl = document.querySelector(
-        `[data-type = ${target.dataset.type}]`
-      );
-      console.log(targetEl);
+      this.#modules.forEach((modul) => {
+        if (modul.type === target.dataset.type) {
+          modul.trigger();
+          this.#contextMenu.close();
+        }
+      });
     });
   }
 
   run() {
-    this.#contextMenu.add(this.#timerMD.toHTML());
-    this.#contextMenu.add(this.#aboutUsMD.toHTML());
+    this.#modules.forEach((modul) => {
+      this.#contextMenu.add(modul.toHTML());
+    });
   }
 }

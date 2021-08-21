@@ -1,5 +1,6 @@
 import { Module } from "../core/module";
 import { setAttributesElement } from "../utils";
+
 export class Timer extends Module {
   constructor(type, text) {
     super(type, text);

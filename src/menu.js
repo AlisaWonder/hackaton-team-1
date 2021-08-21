@@ -8,6 +8,11 @@ export class ContextMenu extends Menu {
       const { x } = event;
       const { y } = event;
 
+      const info = document.querySelector(".container");
+      if (info) {
+        info.remove();
+      }
+
       this.open(x, y);
     });
   }
@@ -16,7 +21,6 @@ export class ContextMenu extends Menu {
     this.el.classList.add("open");
     this.el.style.left = `${x}px`;
     this.el.style.top = `${y}px`;
-    const ghh = 1;
   }
 
   close() {

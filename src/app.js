@@ -12,8 +12,8 @@ export default class App {
     this.#contextMenu = new ContextMenu("ul");
     this.#modules = [
       new Timer("timer-md", "Таймер"),
-      new AboutUs("about-us-md", "Об авторах"),
       new ShapeModule("shape-md", "Генератор фигур"),
+      new AboutUs("about-us-md", "Об авторах"),
     ];
 
     document.oncontextmenu = function () {

@@ -7,22 +7,12 @@ export class ShapeModule extends Module {
   }
 
   trigger() {
-    // data-type: shape - md
-
-    function RandColor() {
-      const letters = "0123456789ABCDEF";
-      let color = "#";
-      for (let i = 0; i < 6; i++) {
-        color += letters[Math.floor(Math.random() * 16)];
-      }
-      console.log(color);
-      return color;
-    }
-
     let canvas = document.createElement("canvas");
     canvas.id = "canvas";
-    const container = document.querySelector(".container");
+    const container = document.createElement("div");
+    container.classList = "container__canva";
     container.append(canvas);
+    document.body.append(container);
     let ctx = canvas.getContext("2d");
     const width = (canvas.width = innerWidth);
     const height = (canvas.height = innerHeight);
@@ -34,6 +24,9 @@ export class ShapeModule extends Module {
     };
 
     let size = 0;
+    let positionX = 0;
+    let color = Utils.RandColor();
+    let colorStroke = Utils.RandColor();
 
     addEventListener("resize", () => {
       canvas.width = innerWidth;
@@ -41,7 +34,7 @@ export class ShapeModule extends Module {
     });
 
     function rectangleShape() {
-      ctx.fillStyle = RandColor();
+      ctx.fillStyle = Utils.RandColor();
       ctx.fillRect(
         point.x,
         point.y,
@@ -56,41 +49,30 @@ export class ShapeModule extends Module {
       ctx.lineTo(Math.random() * canvas.width, Math.random() * canvas.height);
       ctx.lineTo(Math.random() * canvas.width, Math.random() * canvas.height);
       ctx.closePath();
-      ctx.fillStyle = RandColor();
+      ctx.fillStyle = Utils.RandColor();
       ctx.fill();
     }
 
     function circleShape() {
       let radius = Utils.random(0, 300);
-      ctx.fillStyle = RandColor();
+      ctx.fillStyle = Utils.RandColor();
       ctx.arc(point.x, point.y, radius, Math.PI * 2, 0, false);
       ctx.fill();
       ctx.closePath();
     }
 
     function textShape(text) {
-      ctx.font = "bold 20px Montserrat,sans-serif";
+      ctx.font = "bold 40px Montserrat,sans-serif";
       ctx.lineWidth = 1;
-      ctx.strokeStyle = RandColor();
+      ctx.strokeStyle = Utils.RandColor();
       ctx.strokeText(text, point.x, point.y);
     }
-
-    function surpriseShape() {
-      ctx.fillStyle = "green";
-      ctx.beginPath();
-      ctx.arc(width / 2, height / 2, 50, 0, Math.PI * 2);
-      ctx.closePath();
-      ctx.fill();
-    }
-
-    let positionX = 0;
 
     function animate() {
       size += 0.05;
       positionX += 2;
-      //draw each frame
-      ctx.fillStyle = "green";
-      ctx.strokeStyle = "white";
+      ctx.fillStyle = color;
+      ctx.strokeStyle = colorStroke;
       ctx.lineWidth = 5;
       ctx.beginPath();
       ctx.arc(positionX, point.y / 2, size, 0, Math.PI * 2);

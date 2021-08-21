@@ -3,6 +3,7 @@ import { ContextMenu } from "./menu";
 import { AboutUs } from "./modules/aboutUs.module";
 import { Timer } from "./modules/timer.module";
 import { ShapeModule } from "./modules/shape.module";
+import { Btn } from "./modules/btn.module";
 
 export default class App {
   #contextMenu;
@@ -13,6 +14,7 @@ export default class App {
     this.#modules = [
       new Timer("timer-md", "Таймер"),
       new ShapeModule("shape-md", "Генератор фигур"),
+      new Btn("btn-md", "Убегающая кнопка"),
       new AboutUs("about-us-md", "Об авторах"),
     ];
 

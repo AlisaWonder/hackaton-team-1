@@ -274,7 +274,7 @@ canvas {
   transform-origin: bottom right;
 }
 .arrow-left-bottom {
-  top: 4px;
+  top: 1px;
 
   transform: rotate(-135deg);
   transform-origin: top right;

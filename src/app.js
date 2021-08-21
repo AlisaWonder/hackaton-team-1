@@ -1,28 +1,39 @@
 import "./styles.css";
 import { ContextMenu } from "./menu";
+import { AboutUs } from "./modules/aboutUs.module";
+import { Timer } from "./modules/timer.module";
 import { ShapeModule } from "./modules/shape.module";
-import { BackgroundModule } from "./modules/background.module";
 
 export default class App {
-  constructor() {}
+  #contextMenu;
+  #modules;
 
-  run() {
-    //  const shapeMD = new ShapeModule("shape - md", "modul");
-    const backgroundMD = new BackgroundModule("background - md", "modul");
+  constructor() {
+    this.#contextMenu = new ContextMenu("ul");
+    this.#modules = [
+      new Timer("timer-md", "Таймер"),
+      new AboutUs("about-us-md", "Об авторах"),
+      new ShapeModule("shape-md", "Генератор фигур"),
+    ];
 
     document.oncontextmenu = function () {
       return false;
     };
 
-    const contextMenu = new ContextMenu("ul");
-    //  contextMenu.add(shapeMD.toHTML());
-    //  contextMenu.add(backgroundMD.toHTML());
-
     document.body.addEventListener("click", (event) => {
-      if (event.target.offsetParent == document.body) {
-        const shapeMD = new ShapeModule("shape - md", "modul");
-        shapeMD.trigger();
-      }
+      const { target } = event;
+      this.#modules.forEach((modul) => {
+        if (modul.type === target.dataset.type) {
+          modul.trigger();
+          this.#contextMenu.close();
+        }
+      });
+    });
+  }
+
+  run() {
+    this.#modules.forEach((modul) => {
+      this.#contextMenu.add(modul.toHTML());
     });
   }
 }

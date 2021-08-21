@@ -72,6 +72,46 @@ body {
   background: #343434;
 }
 
+.time__container {
+  position: absolute;
+  width: 250px;
+  height: 300px;
+  background: #27d084;
+  border-radius: 0 24px 24px 0;
+  box-shadow: 0 0 5px #27d084;
+  transform: translateX(-110%);
+  visibility: hidden;
+  transition: transform 0.4s, visibility 0.4s;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 10px;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+}
+
+.time__container.active {
+  transform: translateX(0%);
+  visibility: visible;
+}
+
+.time__container form {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  position: relative;
+  flex-wrap: wrap;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 canvas {
   width: 100%;
   height: 100vh;

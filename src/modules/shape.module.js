@@ -26,8 +26,7 @@ export class ShapeModule extends Module {
     let ctx = canvas.getContext("2d");
     const width = (canvas.width = innerWidth);
     const height = (canvas.height = innerHeight);
-    //  let randomShape = Utils.random(1, 5);
-    let randomShape = 6;
+    let randomShape = Utils.random(1, 6);
 
     let point = {
       x: Utils.random(150, width),
@@ -43,7 +42,12 @@ export class ShapeModule extends Module {
 
     function rectangleShape() {
       ctx.fillStyle = RandColor();
-      ctx.fillRect(point.x - 150, point.y - 150, 150, 150);
+      ctx.fillRect(
+        point.x,
+        point.y,
+        Utils.random(0, width),
+        Utils.random(0, width)
+      );
     }
 
     function triangleShape() {

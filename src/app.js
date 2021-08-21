@@ -7,7 +7,7 @@ export default class App {
   constructor() {}
 
   run() {
-    const shapeMD = new ShapeModule("shape - md", "modul");
+    //  const shapeMD = new ShapeModule("shape - md", "modul");
     const backgroundMD = new BackgroundModule("background - md", "modul");
 
     document.oncontextmenu = function () {
@@ -15,7 +15,14 @@ export default class App {
     };
 
     const contextMenu = new ContextMenu("ul");
-    contextMenu.add(shapeMD.toHTML());
-    contextMenu.add(backgroundMD.toHTML());
+    //  contextMenu.add(shapeMD.toHTML());
+    //  contextMenu.add(backgroundMD.toHTML());
+
+    document.body.addEventListener("click", (event) => {
+      if (event.target.offsetParent == document.body) {
+        const shapeMD = new ShapeModule("shape - md", "modul");
+        shapeMD.trigger();
+      }
+    });
   }
 }

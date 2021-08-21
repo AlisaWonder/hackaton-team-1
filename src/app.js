@@ -1,17 +1,21 @@
 import "./styles.css";
+import { ContextMenu } from "./menu";
 import { ShapeModule } from "./modules/shape.module";
+import { BackgroundModule } from "./modules/background.module";
 
-// document.body.addEventListener("click", (event) => {
-//   const shape = new ShapeModule();
-//   if (shape.type == "Shapes") {
-//     shape.trigger();
-//   }
-// });
+export default class App {
+  constructor() {}
 
-document.body.addEventListener("click", (event) => {
-  console.log(event.target.offsetParent);
-  if (event.target.offsetParent == document.body) {
-    const shape = new ShapeModule("Shape", "Мой модуль");
-    shape.trigger();
+  run() {
+    const shapeMD = new ShapeModule("shape - md", "modul");
+    const backgroundMD = new BackgroundModule("background - md", "modul");
+
+    document.oncontextmenu = function () {
+      return false;
+    };
+
+    const contextMenu = new ContextMenu("ul");
+    contextMenu.add(shapeMD.toHTML());
+    contextMenu.add(backgroundMD.toHTML());
   }
-});
+}

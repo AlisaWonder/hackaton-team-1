@@ -1,21 +1,29 @@
 import "./styles.css";
 import { ContextMenu } from "./menu";
-import { ShapeModule } from "./modules/shape.module";
-import { BackgroundModule } from "./modules/background.module";
+import { AboutUs } from "./modules/aboutUs.module";
 
 export default class App {
-  constructor() {}
+  #aboutUsMD;
+  #contextMenu;
 
-  run() {
-    const shapeMD = new ShapeModule("shape - md", "modul");
-    const backgroundMD = new BackgroundModule("background - md", "modul");
+  constructor() {
+    this.#aboutUsMD = new AboutUs("about-us-md", "Об авторах");
+    this.#contextMenu = new ContextMenu("ul");
 
     document.oncontextmenu = function () {
       return false;
     };
 
-    const contextMenu = new ContextMenu("ul");
-    contextMenu.add(shapeMD.toHTML());
-    contextMenu.add(backgroundMD.toHTML());
+    document.body.addEventListener("click", (event) => {
+      const { target } = event;
+      const targetEl = document.querySelector(
+        `[data-type = ${target.dataset.type}]`
+      );
+      console.log(targetEl);
+    });
+  }
+
+  run() {
+    this.#contextMenu.add(this.#aboutUsMD.toHTML());
   }
 }

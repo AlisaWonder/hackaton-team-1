@@ -1,12 +1,15 @@
 import "./styles.css";
 import { ContextMenu } from "./menu";
 import { AboutUs } from "./modules/aboutUs.module";
+import { Timer } from "./modules/timer.module";
 
 export default class App {
   #aboutUsMD;
   #contextMenu;
+  #timerMD;
 
   constructor() {
+    this.#timerMD = new Timer("timer-md", "Таймер");
     this.#aboutUsMD = new AboutUs("about-us-md", "Об авторах");
     this.#contextMenu = new ContextMenu("ul");
 
@@ -24,6 +27,7 @@ export default class App {
   }
 
   run() {
+    this.#contextMenu.add(this.#timerMD.toHTML());
     this.#contextMenu.add(this.#aboutUsMD.toHTML());
   }
 }

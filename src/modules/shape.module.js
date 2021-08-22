@@ -9,15 +9,14 @@ export class ShapeModule extends Module {
   trigger() {
     let canvas = document.createElement("canvas");
     canvas.id = "canvas";
-    const container = document.querySelector(".container");
 
+    const container = document.querySelector(".container");
     container.append(canvas);
 
     let ctx = canvas.getContext("2d");
     const width = (canvas.width = innerWidth);
     const height = (canvas.height = innerHeight);
     let randomShape = Utils.random(1, 6);
-
     let point = {
       x: Utils.random(150, width),
       y: Utils.random(150, height),
@@ -82,17 +81,17 @@ export class ShapeModule extends Module {
       requestAnimationFrame(animate);
     }
 
-    if (randomShape == 1) {
+    if (randomShape === 1) {
       rectangleShape();
-    } else if (randomShape == 2) {
+    } else if (randomShape === 2) {
       triangleShape();
-    } else if (randomShape == 3) {
+    } else if (randomShape === 3) {
       circleShape();
-    } else if (randomShape == 4) {
+    } else if (randomShape === 4) {
       textShape("Мы любим JS");
-    } else if (randomShape == 5) {
+    } else if (randomShape === 5) {
       textShape("Чей модуль мог тут быть?");
-    } else if (randomShape == 6) {
+    } else if (randomShape === 6) {
       animate();
     }
   }

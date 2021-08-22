@@ -4,8 +4,10 @@ import { AboutUs } from "./modules/aboutUs.module";
 import { Timer } from "./modules/timer.module";
 import { ShapeModule } from "./modules/shape.module";
 import { Btn } from "./modules/btn.module";
+import { AdBlock } from "./modules/ad_block.module";
 import { BackgroundModule } from "./modules/background.module";
 import { RandomSoundModule } from "./modules/randomSound.module";
+
 
 export default class App {
   #contextMenu;
@@ -18,7 +20,7 @@ export default class App {
       new ShapeModule("shape-md", "Генератор фигур"),
       new Btn("btn-md", "Убегающая кнопка"),
       new AboutUs("about-us-md", "Об авторах"),
-      new BackgroundModule("backgroun-md", "Random Color"),
+      new BackgroundModule("background-md", "Изменение фона"),
       new RandomSoundModule("random-sound-md", "Random Sound"),
     ];
 
@@ -41,5 +43,8 @@ export default class App {
     this.#modules.forEach((modul) => {
       this.#contextMenu.add(modul.toHTML());
     });
+
+    this.ad_block = new AdBlock("ad_block", "Рекламный модуль");
+    this.ad_block.trigger();
   }
 }

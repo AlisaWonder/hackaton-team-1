@@ -7,6 +7,7 @@ import { Btn } from "./modules/btn.module";
 import { AdBlock } from "./modules/ad_block.module";
 import { BackgroundModule } from "./modules/background.module";
 import { RandomSoundModule } from "./modules/randomSound.module";
+import { CustomerMessage } from './modules/customer_message.module';
 
 
 export default class App {
@@ -22,6 +23,7 @@ export default class App {
       new AboutUs("about-us-md", "Об авторах"),
       new BackgroundModule("background-md", "Изменение фона"),
       new RandomSoundModule("random-sound-md", "Random Sound"),
+      new CustomerMessage("customer-message-md",  "Умные мысли" )
     ];
 
     document.oncontextmenu = function () {

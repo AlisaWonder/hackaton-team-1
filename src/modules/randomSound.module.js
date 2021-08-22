@@ -17,7 +17,6 @@ export class RandomSoundModule extends Module {
     ];
     function randomMusic() {
       const randomSound = random(1, soundLinks.length);
-      console.log(randomSound);
       const audioObj = new Audio(soundLinks[randomSound - 1]);
       audioObj.play();
     }

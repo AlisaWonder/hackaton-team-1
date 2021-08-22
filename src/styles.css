@@ -198,7 +198,7 @@ canvas {
   flex-wrap: wrap;
   position: relative;
   width: 60%;
-  min-height: 50%;
+  padding: 5px;
   margin: 10% auto;
   background-color: #464646;
   border-radius: 2%;
@@ -216,10 +216,9 @@ canvas {
 }
 
 .inform-block {
-  margin: 5px;
+  margin: 10px;
   width: 65%;
   display: flex;
-  height: 60%;
   color: rgb(255, 255, 255);
   font-size: 20px;
 }
@@ -230,7 +229,7 @@ canvas {
 }
 
 .about-block {
-  margin: 5px;
+  margin: 10px;
   width: 100%;
   display: flex;
   height: 30%;
@@ -350,17 +349,16 @@ canvas {
   display: none;
 }
 
-.customer__message{
+.customer__message {
   width: 100vw;
   height: 100vh;
   background: black;
-  
 }
 
-.message-customer__body{
+.message-customer__body {
   position: absolute;
-  top:0;
-  left:0;
+  top: 0;
+  left: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -370,10 +368,8 @@ canvas {
   height: 46%;
   border-radius: 50%;
   transition: all 0.6s ease-in;
-  
-  
 }
-.message-customer{
+.message-customer {
   font-size: 20px;
   line-height: 1.5;
   color: #ffffff;
@@ -382,11 +378,11 @@ canvas {
     0 0 150px #00ff00;
 }
 
-.message-customer__text{
+.message-customer__text {
   padding: 41px 38px 0 30px;
   text-align: center;
 }
 
-.message-customer__author{
+.message-customer__author {
   margin-top: 20px;
 }

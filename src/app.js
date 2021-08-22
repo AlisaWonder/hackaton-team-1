@@ -4,11 +4,10 @@ import { AboutUs } from "./modules/aboutUs.module";
 import { Timer } from "./modules/timer.module";
 import { ShapeModule } from "./modules/shape.module";
 import { Btn } from "./modules/btn.module";
-import { AdBlock } from "./modules/ad_block.module";
 import { BackgroundModule } from "./modules/background.module";
 import { RandomSoundModule } from "./modules/randomSound.module";
-import { CustomerMessage } from './modules/customer_message.module';
-
+import { CustomerMessage } from "./modules/customer_message.module";
+import { AdBlock } from "./modules/ad_block.module";
 
 export default class App {
   #contextMenu;
@@ -20,10 +19,10 @@ export default class App {
       new Timer("timer-md", "Таймер"),
       new ShapeModule("shape-md", "Генератор фигур"),
       new Btn("btn-md", "Убегающая кнопка"),
+      new BackgroundModule("background-md", "Случайный фон"),
+      new RandomSoundModule("random-sound-md", "Случайный звук"),
+      new CustomerMessage("customer-message-md", "Умные мысли"),
       new AboutUs("about-us-md", "Об авторах"),
-      new BackgroundModule("background-md", "Изменение фона"),
-      new RandomSoundModule("random-sound-md", "Random Sound"),
-      new CustomerMessage("customer-message-md",  "Умные мысли" )
     ];
 
     document.oncontextmenu = function () {

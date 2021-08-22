@@ -25,14 +25,6 @@ export class BackgroundModule extends Module {
 
     const randomColor = random(1, colors.length);
     const body = document.querySelector("body");
-    // const myDiv = body.querySelectorAll("div");
-    // if (myDiv.length > 0) {
-    //   while (body.childNodes.length > 2) {
-    //     body.removeChild(body.lastChild);
-    //   }
-    // }
-
-    console.log();
-    body.style.background = colors[randomColor - 1];
+    body.style.backgroundColor = colors[randomColor];
   }
 }
